@@ -2,19 +2,20 @@
 <head></head>
 <body>
 <form id="uploadImageForm" enctype="multipart/form-data">
-<input name="imagefile[]" type="file" id="takePictureField" accept="image/*" onchange="uploadPhotos(\'#{imageUploadUrl}\')" />
+
   <input id="name" value="#{name}" />
   ... a few more inputs ... 
 </form>
+<input name="imagefile[]" type="file" id="takePictureField" accept="image/*" onchange="uploadPhotos(\'#{imageUploadUrl}\')" />
   
 <script>
 window.uploadPhotos = function(url){
-
+    alert(" inside upload photos ");
     var resizedImage;
 
     // Read in file
     var file = event.target.files[0];
-
+    alert(file.size);
     // Ensure it's an image
     if(file.type.match(/image.*/)) {
         console.log('An image has been loaded');
@@ -62,6 +63,7 @@ window.uploadPhotos = function(url){
 
     
 var dataURLToBlob = function(dataURL) {
+	alert("dataURLToBlob");
     var BASE64_MARKER = ';base64,';
     if (dataURL.indexOf(BASE64_MARKER) == -1) {
         var parts = dataURL.split(',');
@@ -87,6 +89,7 @@ var dataURLToBlob = function(dataURL) {
 
 
 $(document).on("imageResized", function (event) {
+	alert("imageResized");
     var data = new FormData($("form[id*='uploadImageForm']")[0]);
     if (event.blob && event.url) {
         data.append('image_data', event.blob);
