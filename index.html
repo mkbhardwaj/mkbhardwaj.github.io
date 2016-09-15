@@ -6,7 +6,7 @@
   <input id="name" value="#{name}" />
   ... a few more inputs ... 
 </form>
-<input name="imagefile[]" type="file" id="takePictureField" accept="image/*" onchange="uploadPhotos(\'#{imageUploadUrl}\')" />
+<input name="imagefile[]" type="file" id="takePictureField" accept="image/*" onchange="uploadPhotos(\'filepath\')" />
   
 <script>
 window.uploadPhotos = function(url){
