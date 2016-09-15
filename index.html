@@ -2,11 +2,11 @@
 <head></head>
 <body>
 <form id="uploadImageForm" enctype="multipart/form-data">
-
+<input name="imagefile[]" type="file" id="takePictureField" accept="image/*" onchange="uploadPhotos(\'#{imageUploadUrl}\')" />
   <input id="name" value="#{name}" />
   ... a few more inputs ... 
 </form>
-  <input name="imagefile[]" type="file" id="takePictureField" accept="image/*" onchange="uploadPhotos(\'#{imageUploadUrl}\')" />
+  
 <script>
 window.uploadPhotos = function(url){
 
